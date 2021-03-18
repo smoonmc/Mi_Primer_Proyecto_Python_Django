@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title%} Listado de artículos {% endblock %}
+
+{% block content %}
+
+<h1 class="title"> Listado de artículos desde Base de datos:</h1>
+
+{% if messages %}
+     {% for message in messages %}
+        <div class="message">
+          {{message}}
+        </div>
+      {% endfor %}
+{% endif %}
+
+      {% for elemento in articulos %}
+        <article class="article-item"> 
+          <!--Esto es para comprombar exista la imagen-->
+          {% if elemento.image != 'null' and  elemento.image.url|length >= 1 %}
+            
+            <div class="image">
+              <img src="{{elemento.image.url}}"/>
+            </div>        
+          {% endif %}
+
+          <div class="data">
+            <h2> {{elemento.id}}. {{elemento.title}}</h2>
+            <span class="date"> {{elemento.created_at}}</span>  <!--Para ver la fecha-->
+          
+
+            {% if elemento.public %}
+                <strong>Publicado</strong>
+            {% else %}
+                <strong>Privado</strong>
+            {%endif%}
+            
+            <p>  
+              {{elemento.content}}
+              <a href="{% url 'borrar_articulo' elemento.id %}", class="btn btn-delete"> Eliminar </a>
+            <p>
+          </div>
+         
+          <div class="clearfix"></div>
+          
+        </article>
+
+      {% endfor %}
+
+{%endblock%}

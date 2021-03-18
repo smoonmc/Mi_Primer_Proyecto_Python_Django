@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title%} Página de pruebas {% endblock %}
+
+{% block content %}
+<h1 class="title"> Mi primer página WEB con Django!!</h1>
+<p> {{ " ñ" | cut:"ñ" }}</p>
+
+<p>
+{{texto|default:"no hay nada"}}
+</p>
+
+<p>
+<h3> Primer elemento de la lista:</h3>
+{{lista|first}} <!--Mostrar solo el primer elemento de la lista-->
+</p>
+<hr>
+
+<p>
+<h3> Ultimo elemento de la lista:</h3>
+{{lista|last}} <!--Mostrar solo el último elemento de la lista-->
+</p>
+<hr>
+
+<p>
+<h3> Todos los elemento de la lista:</h3>
+{{lista|join:'+'}} <!--Para formatear la lista, separa los elementos por un + -->
+</p>
+<hr>
+
+<p>
+<h3> Cantidad de elemento de la lista:</h3>
+{{lista|length}} <!--Mostrar el total de elementos de la lista-->
+</p>
+<hr>
+
+<p>
+<h3> Elementos de la lista aleatorios:</h3>
+{{lista|random}} <!--muestre un elemento de la lista de forma aleatoria-->
+</p>
+
+<p>
+    {{"Creado por Cecilia Reyes"|saludo|safe}}
+</p>
+
+{%endblock%}

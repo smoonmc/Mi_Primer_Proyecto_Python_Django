@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %} Página de Contacto {% endblock %}
+
+{% block content %}
+
+{% comment "NOTA: Esto es un comentario con Django" %}
+{% endcomment %}
+
+<h1> Página de contacto </h1>
+<hr>
+
+<form> <!--Con el metodo POST no se envia la información por la URL es mas seguro-->
+
+    {% csrf_token %}  <!--Se debe colocar el siguiente token-->
+    <label> Nombre: </label>
+    <input type="text" name="nombre" placeholder="Ingresa tu nombre" </input> 
+
+    <label> Apellidos: </label>
+    <input type="text" name="nombre" placeholder="Ingresa tus apellidos" </input> 
+
+    <label> Teléfono de contacto: </label>
+    <input type="text" name="telefono" placeholder="Ingresa tu teléfono" </input> 
+
+    <label> email: </label>
+    <input type="text" name="email" placeholder="Ingresa tu email" </input> 
+
+    <input type="submit" value="Enviar"> </input> 
+
+</form>
+
+{% endblock %}   
+
+

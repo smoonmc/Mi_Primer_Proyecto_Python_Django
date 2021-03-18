@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <!--el utf-8 es para que reconozca caracteres especiales como la Ñ -->
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+
+</head>
+
+<body>
+
+    <!-- Cabecera de la página-->
+    <header>
+        <div id="logotipo">
+             <img src="{% static 'imagenes/logo.png' %}" />
+            <h1>Sitio web con Django</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'inicio' %}">INICIO</a>
+            </li>
+            <li>
+                <a href="{% url 'articulos'  %}">ARTICULOS</a>
+            </li>
+            <li>
+                <a href="{% url 'create'  %}">CREAR ARTICULO</a>
+            </li>
+            <li>
+                <a href="{% url 'create_full'  %}">CREAR ARTICULO 2</a>
+            </li>
+            <li>
+                <a href="{% url 'hola_mundo' %}">HOLA MUNDO</a>
+            </li>
+            <li>
+                <a href="{% url 'pagina' %}">PAGINA</a>
+            </li>
+            <li>
+                <a href="{% url 'contacto' %}">CONTACTOS</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="barra">
+          <span class="esquina-izquierda"></span>
+          <span class="relleno-barra"></span>
+          <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+
+        <div class="box">
+          <h2 class="title"> </h2>
+          {% block content %}
+          <strong>Contenido del bloque original!!!</strong>
+          {% endblock %}
+        </div>
+        
+    </div>
+
+    <footer>
+        Master en Python &copy; Cecilia Reyes - {% now "d/m/Y" %}
+    </footer>
+
+</body>
+
+</html>

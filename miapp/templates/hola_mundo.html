@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title%} Hola Mundo en Django {% endblock %}
+
+{% block content%}
+ {{block.super}} <!--Esto es para heredar el content desde el layout-->
+
+ <h1 class="title"> Hola mundo con Django!!</h1>
+ <h3> Autor: Cecilia Reyes </h3>
+{% endblock%}

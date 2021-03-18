@@ -1,0 +1,14 @@
+<br/>
+<hr/>
+<br/>
+<h1>Bienvenida {{saludo}} {{nombre}}</h1>
+<h1>Estamos en el año 2021 </h1> 
+<p>Años hasta el 2050: </p>
+<ul>
+  {% for anio in years %}
+    {% if anio|divisibleby:2 == True %} <!-- divisibleby:2  es para sacar el resto de una división si es TRUE quiere de decir que es un número par-->
+        <li> {{anio}} </li>
+    {% endif %}
+  {% endfor %}
+
+</ul>
